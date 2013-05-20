@@ -33,6 +33,12 @@ class monit (
   $delay      = $interval * 2,
   $logfile    = $monit::params::logfile,
   $mailserver = 'localhost',
+#  $httpd         = true,
+#  $httpd_address = 'localhost',
+#  $httpd_allow   = ['localhost'],
+#  $httpd_port    = 2812,
+#  $httpd_ssl     = false,
+#  $httpd_ssl_pem = '',
 ) inherits monit::params {
 
   $conf_include = "${monit::params::conf_dir}/*"
