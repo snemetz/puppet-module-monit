@@ -4,12 +4,19 @@
 #
 # === Parameters
 #
-# [*ensure*]    - If you want the service running or not
-# [*admin*]     - Admin email address
-# [*interval*]  - How frequently the check runs
-# [*delay*]     - How long to wait before actually performing any action
-# [*logfile*]   - What file for monit use for logging
-# [*mailserver] - Which mailserver to use
+# [*ensure*]     - If you want the service running or not
+# [*admin*]      - Admin email address
+# [*interval*]   - How frequently the check runs
+# [*delay*]      - How long to wait before actually performing any action
+# [*logfile*]    - What file for monit use for logging
+# [*mailserver*] - Which mailserver to use
+# [*httpd*]         - Enable web server or not
+# [*httpd_address*] - Restrict interface
+# [*httpd_allow*]   - Array of allow statements (users, groups, hosts)
+# [*httpd_port*]    - Port to use (default: 2812)
+# [*httpd_ssl*]     - Enable SSL (default: false)
+# [*httpd_ssl_pem*] - Path to SSL pem file
+#
 # === Examples
 #
 #  class { 'monit':
@@ -27,16 +34,16 @@
 # Copyright 2011 Eivind Uggedal <eivind@uggedal.com>
 #
 class monit (
-  $ensure     = present,
-  $admin      = undef,
-  $interval   = 60,
-  $delay      = $interval * 2,
-  $logfile    = $monit::params::logfile,
-  $mailserver = 'localhost',
-#  $httpd         = true,
-#  $httpd_address = 'localhost',
-#  $httpd_allow   = ['localhost'],
-#  $httpd_port    = 2812,
+  $ensure        = present,
+  $admin         = undef,
+  $interval      = 60,
+  $delay         = $interval * 2,
+  $logfile       = $monit::params::logfile,
+  $mailserver    = 'localhost',
+  $httpd         = true,
+  $httpd_address = 'localhost',
+  $httpd_allow   = ['localhost'],
+  $httpd_port    = 2812,
 #  $httpd_ssl     = false,
 #  $httpd_ssl_pem = '',
 ) inherits monit::params {
