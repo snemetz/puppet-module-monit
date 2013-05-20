@@ -1,5 +1,6 @@
 Puppet Monit Module
 ===================
+[![Build Status](http://cs-jenkins.barnesandnoble.com/view/Puppet/view/Modules/job/Puppet_Module_monit/badge/icon)](http://cs-jenkins.barnesandnoble.com/view/Puppet/view/Modules/job/Puppet_Module_monit/)
 
 Module for configuring Monit and and setting up monitoring
 of running processes.
