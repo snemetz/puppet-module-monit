@@ -115,15 +115,15 @@ set alert <%= @admin %>                       # receive all alerts
 set httpd port <%= httpd_port %>
 <% if httpd_address -%>
   and use address <%= httpd_address %>  # only accept connection from <%= httpd_address %>
-<% end %>
-<% httpd_allow.each do |allow| %>
+<% end -%>
+<% httpd_allow.each do |allow| -%>
     allow <%= allow %>
-<% end %>
-#      allow localhost        # allow localhost to connect to the server and
+<% end -%>
+#     allow localhost        # allow localhost to connect to the server and
 #     allow admin:monit      # require user 'admin' with password 'monit'
 #     allow @monit           # allow users of group 'monit' to connect (rw)
 #     allow @users readonly  # allow users of group 'users' to connect readonly
-<% end %>
+<% end -%>
 #
 #
 ###############################################################################
