@@ -10,6 +10,7 @@
 # [*delay*]      - How long to wait before actually performing any action
 # [*logfile*]    - What file for monit use for logging
 # [*mailserver*] - Which mailserver to use
+# [*mailformat*] - Set mail-format
 # [*httpd*]         - Enable web server or not
 # [*httpd_address*] - Restrict interface
 # [*httpd_allow*]   - Array of allow statements (users, groups, hosts)
@@ -40,6 +41,7 @@ class monit (
   $delay         = $interval * 2,
   $logfile       = $monit::params::logfile,
   $mailserver    = 'localhost',
+  $mailformat    = "from: monit_${::hostname}@${::domain}",
   $httpd         = true,
   $httpd_address = 'localhost',
   $httpd_allow   = ['localhost'],

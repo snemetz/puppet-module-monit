@@ -94,6 +94,7 @@ set mailserver <%= mailserver %>
 ## are expanded at runtime. For example, to override the sender, use:
 #
 # set mail-format { from: monit@foo.bar }
+set mail-format { <%= mailformat %> }
 #
 #
 ## You can set alert recipients whom will receive alerts if/when a 
