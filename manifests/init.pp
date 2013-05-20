@@ -32,7 +32,7 @@ class monit (
   $interval   = 60,
   $delay      = $interval * 2,
   $logfile    = $monit::params::logfile,
-  $mailserver = 'localhost', 
+  $mailserver = 'localhost',
 ) inherits monit::params {
 
   $conf_include = "${monit::params::conf_dir}/*"
@@ -67,16 +67,15 @@ class monit (
 
   # Not all platforms need this
   if ($monit::params::default_conf) {
-   if ($monit::params::default_conf_tpl) {
-    file { $monit::params::default_conf:
-      ensure  => $ensure,
-      content => template("monit/$monit::params::default_conf_tpl"),
-      require => Package[$monit::params::monit_package],
+    if ($monit::params::default_conf_tpl) {
+      file { $monit::params::default_conf:
+        ensure  => $ensure,
+        content => template("monit/$monit::params::default_conf_tpl"),
+        require => Package[$monit::params::monit_package],
+      }
+
     }
-
-   }
-   else { fail("You need to provide config template")}
-
+    else { fail("You need to provide config template")}
   }
 
   # Template uses: $logfile
